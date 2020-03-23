@@ -1,0 +1,11 @@
+============
+Introduction
+============
+
+.. _savudoc: https://savu.readthedocs.io/en/latest/
+
+This is general information regarding savu-lite.
+
+Comprehensive documentation on Savu can be found at `savudoc`_.
+
+

@@ -17,5 +17,9 @@ Install savu-lite
 
 conda install -c savu-dep savu-lite
 
+Optional Additions
+------------------
+
+conda install tomopy
 
 

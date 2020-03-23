@@ -10,7 +10,9 @@ Welcome to savu-lite's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   introduction
    installation
+   development
 
 
 Indices and tables
