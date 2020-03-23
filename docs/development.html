@@ -41,41 +41,40 @@
 
     <div class="document">
       <div class="documentwrapper">
-        <div class="bodywrapper">
           <div class="body" role="main">
             
   <div class="section" id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
 <p>Development notes for savu-lite</p>
+<div class="section" id="cooking-with-conda">
+<h2>Cooking with Conda<a class="headerlink" href="#cooking-with-conda" title="Permalink to this headline">¶</a></h2>
+<p>To set-up the basic development environment downloaded Miniconda2-latest-linux-x86_64.sh and installed on local machine.  Update to get latest versions and then install conda-build,  conda-verify, sphinx (for documentation), and anaconda-client (to allow uploading to anaconda cloud).</p>
+<ol class="arabic simple">
+<li>conda update conda</li>
+<li>conda install conda-build</li>
+<li>conda install conda-verify</li>
+<li>conda install sphinx</li>
+<li>conda install anaconda-client</li>
+</ol>
+</div>
+<div class="section" id="savu-training-example">
+<h2>Savu Training Example<a class="headerlink" href="#savu-training-example" title="Permalink to this headline">¶</a></h2>
+<p>Training examples are documented here: <a class="reference external" href="https://savu.readthedocs.io/en/latest/user_guides/user_training/#training-examples">trainingexamples</a></p>
+<p>savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .</p>
+</div>
+<div class="section" id="use-of-pip-with-conda">
+<h2>Use of PIP with conda<a class="headerlink" href="#use-of-pip-with-conda" title="Permalink to this headline">¶</a></h2>
+<p>Currently the following files need to be pip installed as part of the build.sh script:</p>
+<ul class="simple">
+<li>gnureadline</li>
+<li>nvidia-ml-py</li>
+</ul>
+<p>However Conda and Pip don’t play well together and this is only an interim solution.</p>
+</div>
 </div>
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">savu-lite installation</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/development.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
       </div>
       <div class="clearer"></div>
     </div>

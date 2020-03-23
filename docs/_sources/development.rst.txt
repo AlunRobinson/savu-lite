@@ -2,4 +2,34 @@
 Development
 ===========
 
+.. _trainingexamples: https://savu.readthedocs.io/en/latest/user_guides/user_training/#training-examples
+
 Development notes for savu-lite
+
+Cooking with Conda
+==================
+
+To set-up the basic development environment downloaded Miniconda2-latest-linux-x86_64.sh and installed on local machine.  Update to get latest versions and then install conda-build,  conda-verify, sphinx (for documentation), and anaconda-client (to allow uploading to anaconda cloud).
+
+1) conda update conda
+2) conda install conda-build
+3) conda install conda-verify
+4) conda install sphinx
+5) conda install anaconda-client
+
+Savu Training Example
+=====================
+
+Training examples are documented here: `trainingexamples`_
+
+savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .
+
+Use of PIP with conda
+=====================
+
+Currently the following files need to be pip installed as part of the build.sh script:
+
+* gnureadline
+* nvidia-ml-py
+
+However Conda and Pip don’t play well together and this is only an interim solution.
