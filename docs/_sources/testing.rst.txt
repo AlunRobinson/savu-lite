@@ -1,0 +1,37 @@
+=======
+Testing
+=======
+
+To create a test environment (called "test" in command below)
+
+  ``conda create --name test python=2``
+
+To switch to "test" environment:
+
+  ``conda activate test``
+
+To reset "test" environment to initial install:
+
+  ``conda install --name test --revision 0``
+
+Savu Training Example
+---------------------
+
+Training examples are documented here: `trainingexamples`_
+
+  ``savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .``
+
+Existing Savu Tests
+-------------------
+
+These can be run successfully from a conda installed savu-lite; savu_quick_test is also run as part of the build.
+
+* savu_quick_tests
+* savu_full_test
+
+Savu Issues
+-----------
+
+Refresh.py is awaiting a fix that will be introduced in next release.
+
+

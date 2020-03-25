@@ -5,11 +5,13 @@ Welcome to savu-lite's documentation!
 =====================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
    introduction
    install-instructions
    development
+   testing
+   diamond
 
 .. * :ref:`search`

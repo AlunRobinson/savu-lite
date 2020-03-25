@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Introduction &#8212; savu-lite 1.0 documentation</title>
+    <title>Testing &#8212; savu-lite 1.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="savu-lite installation" href="install-instructions.html" />
-    <link rel="prev" title="Welcome to savu-lite’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Development" href="development.html" /> 
   </head>
   <body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -34,10 +33,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="install-instructions.html" title="savu-lite installation"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="Welcome to savu-lite’s documentation!"
+          <a href="development.html" title="Development"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>
@@ -48,21 +44,35 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p><strong>savu-lite</strong></p>
-<p>savu-lite is a minimal Savu installation designed to run on a local machine as a trial/training introduction to Savu.</p>
-<p>It will only run on a linux 64-bit computer; their is no provision for Windows, Unix, or Mac operating systems.</p>
-<p>No administrator priviliges are required to install.</p>
-<p><strong>Savu</strong></p>
-<p>Savu is a Python package to assist with the processing and reconstruction of parallel-beam tomography data. Savu is capable of processing N-dimensional full-field tomography and mapping tomography data, along with concurrent processing of multiple datasets.</p>
-<p>Comprehensive documentation on Savu can be found at <a class="reference external" href="https://savu.readthedocs.io/en/latest/">savudoc</a>.</p>
-<p><strong>Anaconda</strong></p>
-<p>A science based Python and R distribution that is used by savu-lite as a build (through conda-build) and delivery (through Anaconda Cloud repository) mechanism.</p>
-<p><em>miniconda</em></p>
-<p>Miniconda is a small, bootstrap version of Anaconda that includes only conda, Python, the packages they depend on, and a small number of other useful packages, including pip, zlib, and a few others.</p>
-<p><em>Conda</em></p>
-<p>The package and environment manager program bundled with Anaconda that installs and updates conda packages and their dependencies. Provides virtual environment capabilities similar to python venv.</p>
+  <div class="section" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<p>To create a test environment (called “test” in command below)</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">python=2</span></code></div></blockquote>
+<p>To switch to “test” environment:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">test</span></code></div></blockquote>
+<p>To reset “test” environment to initial install:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">--revision</span> <span class="pre">0</span></code></div></blockquote>
+<div class="section" id="savu-training-example">
+<h2>Savu Training Example<a class="headerlink" href="#savu-training-example" title="Permalink to this headline">¶</a></h2>
+<p>Training examples are documented here: <a href="#id1"><span class="problematic" id="id2">`trainingexamples`_</span></a></p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">savu</span> <span class="pre">data/24737.nxs</span> <span class="pre">process_lists/simple_tomo_pipeline_cpu.nxs</span> <span class="pre">.</span></code></div></blockquote>
+</div>
+<div class="section" id="existing-savu-tests">
+<h2>Existing Savu Tests<a class="headerlink" href="#existing-savu-tests" title="Permalink to this headline">¶</a></h2>
+<p>These can be run successfully from a conda installed savu-lite; savu_quick_test is also run as part of the build.</p>
+<ul class="simple">
+<li>savu_quick_tests</li>
+<li>savu_full_test</li>
+</ul>
+</div>
+<div class="section" id="savu-issues">
+<h2>Savu Issues<a class="headerlink" href="#savu-issues" title="Permalink to this headline">¶</a></h2>
+<p>Refresh.py is awaiting a fix that will be introduced in next release.</p>
+</div>
 </div>
 
 
@@ -71,16 +81,23 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Testing</a><ul>
+<li><a class="reference internal" href="#savu-training-example">Savu Training Example</a></li>
+<li><a class="reference internal" href="#existing-savu-tests">Existing Savu Tests</a></li>
+<li><a class="reference internal" href="#savu-issues">Savu Issues</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to savu-lite’s documentation!</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="install-instructions.html"
-                        title="next chapter">savu-lite installation</a></p>
+  <p class="topless"><a href="development.html"
+                        title="previous chapter">Development</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/introduction.rst.txt"
+      <li><a href="_sources/testing.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -105,10 +122,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="install-instructions.html" title="savu-lite installation"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="Welcome to savu-lite’s documentation!"
+          <a href="development.html" title="Development"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>

@@ -54,7 +54,7 @@ Upload to savu-dep if testing passes
 Current channels used
 ---------------------
 
-DEFAULT
+**Default**
 
 * https://repo.anaconda.com/pkgs/main/linux-64
 * https://repo.anaconda.com/pkgs/main/noarch
@@ -63,7 +63,7 @@ DEFAULT
 * https://conda.anaconda.org/conda-forge/linux-64
 * https://conda.anaconda.org/conda-forge/noarch
 
-NEED TO BE ADDED
+**Additional**
 
 * https://conda.anaconda.org/astra-toolbox/label/dev/linux-64
 * https://conda.anaconda.org/astra-toolbox/label/dev/noarch
@@ -75,73 +75,62 @@ NEED TO BE ADDED
 Use of PIP with conda
 ---------------------
 
+pip installs are not recommended as they mix poorly Conda and should be done after conda installs completed!?
+
 Currently the following files need to be pip installed as part of the build.sh script:
 
-* gnureadline (8.0.0)
-* nvidia-ml-py (7.352.0)
+* gnureadline (8.0.0) - deprecated and no longer recommended for use
+* nvidia-ml-py (7.352.0) - older python 2 version
 
 However Conda and Pip don’t play well together and this is only an interim solution.
 
-Anaconda Cloud is best delivery mechanism
------------------------------------------
+**Gnureadline**
 
-Adding the built package to existing savu-dep anaconda cloud repository automatically allows conda install with savu-dep as the channel.  This seems much easier that attempting to set-up a continuous integration build on conda-forge that would not be of much use for this application.  It also quick, less than 15 minutes to upload and requires no approval from any external entity.
+This is reasonably low-risk given the lack of dependencies. The long-term solution is likely to be removal of dependency in Savu.
+Conda install options listed at: https://anaconda.org/conda-forge/gnureadline do not work.
 
-Testing
-=======
+**Nvidia-ml-py**
 
-To create a test environment (called "test" in command below)
+https://files.pythonhosted.org/packages/72/31/378ca145e919ca415641a0f17f2669fa98c482a81f1f8fdfb72b1f9dbb37/nvidia-ml-py-7.352.0.tar.gz
 
-  ``conda create --name test python=2``
-
-To switch to "test" environment:
-
-  ``conda activate test``
-
-To reset "test" environment to initial install:
-
-  ``conda install --name test --revision 0``
-
-Savu Training Example
----------------------
-
-Training examples are documented here: `trainingexamples`_
-
-  ``savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .``
-
-Existing Savu Tests
--------------------
-
-These can be run successfully from a conda installed savu-lite; savu_quick_test is also run as part of the build.
-
-* savu_quick_tests
-* savu_full_test
-
-Diamond Light Source Specific Notes
-===================================
-
-Use local machine whenever possible
------------------------------------
-
-Anything run on the main network is very slow, need everything to happen on local machine that is about five time faster.
-
-Temporary Path
+Anaconda Cloud
 --------------
 
-TMPPATH needs to be set to local machine otherwise build process takes five times as long!
-Create a “.bashrx_local” file containing the following line:
+Anaconda Cloud is best delivery mechanism for savu-lite.  Adding the built package to existing savu-dep anaconda cloud repository automatically allows conda install with savu-dep as the channel.  This seems much easier that attempting to set-up a continuous integration build on conda-forge that would not be of much use for this application.  It also quick, less than 15 minutes to upload and requires no approval from any external entity.
 
-  ``export   TMPPATH=/scratch/temporary-folder-name``
+**To access Anaconda Cloud**
 
-Even with this, still need to check /tmp for accumulation of system detritus that can leave environment with insufficient available space to perform a Conda build. 
+Sign-up at: https://anaconda.org/
+Add to conda installation anaconda-client as follows:
 
-Don’t use Module loaded version of Conda
-----------------------------------------
+  ``conda install anaconda-client``
 
-Using modules network version is slow when run on network and has permissions problems when using it locally on /scratch.
-Recommend downloading and installing miniconda on scratch.
+**Notes**
 
-I suspect that Conda does not react well with alternative installation and environmental control mechanisms such as Module Load and Pip, particularly when attempting to resolve dependency conflicts.
+Needed to delete and re-add to change documentation URL shown on Anaconda Cloud.
+
+Build with Miniconda 3 or 2 ?
+-----------------------------
+
+Miniconda2 seemed to have stability issues {some packages no longer supported?!}. Miniconda3 may cause issues when used even though building a python 2 system although this needs to be reconfirmed.
+
+Miscellaneous
+-------------
+
+**Python 2 “end of life”**
+
+Any Python 2 solution will be frozen in time as support for dependant libraries will diminish and cease. Currently 2.7.16 used, 2.7.17 is latest with 2.7.18 due in April
+
+numpy is no longer supported for python 2; last available version that can be used is 1.16.6
+
+**Virtual Packages**
+
+Virtual packages exist for:
+
+* cuda (__cuda)
+* glibc (__glibc)
+
+these can detect presence of and return version numbers for features that cannot be managed directly by conda.
 
 Useful Links
 ============
