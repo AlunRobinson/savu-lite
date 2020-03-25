@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Development &#8212; savu-lite 0 documentation</title>
+    <title>Development &#8212; savu-lite 1.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="savu-lite installation" href="installation.html" /> 
+    <link rel="prev" title="savu-lite installation" href="install-instructions.html" /> 
   </head>
   <body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -33,14 +33,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="installation.html" title="savu-lite installation"
+          <a href="install-instructions.html" title="savu-lite installation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">savu-lite 0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
+        <div class="bodywrapper">
           <div class="body" role="main">
             
   <div class="section" id="development">
@@ -48,33 +49,184 @@
 <p>Development notes for savu-lite</p>
 <div class="section" id="cooking-with-conda">
 <h2>Cooking with Conda<a class="headerlink" href="#cooking-with-conda" title="Permalink to this headline">¶</a></h2>
-<p>To set-up the basic development environment downloaded Miniconda2-latest-linux-x86_64.sh and installed on local machine.  Update to get latest versions and then install conda-build,  conda-verify, sphinx (for documentation), and anaconda-client (to allow uploading to anaconda cloud).</p>
+<p>To set-up the basic development environment download Miniconda2-latest-linux-x86_64.sh and install on local machine.  Update to get latest versions and then install conda-build,  conda-verify, sphinx (for documentation), and anaconda-client (to allow uploading to anaconda cloud).</p>
 <ol class="arabic simple">
-<li>conda update conda</li>
-<li>conda install conda-build</li>
-<li>conda install conda-verify</li>
-<li>conda install sphinx</li>
-<li>conda install anaconda-client</li>
+<li><code class="docutils literal"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">conda</span></code></li>
+<li><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">conda-build</span></code></li>
+<li><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">conda-verify</span></code></li>
+<li><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">sphinx</span></code></li>
+<li><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">anaconda-client</span></code></li>
 </ol>
 </div>
-<div class="section" id="savu-training-example">
-<h2>Savu Training Example<a class="headerlink" href="#savu-training-example" title="Permalink to this headline">¶</a></h2>
-<p>Training examples are documented here: <a class="reference external" href="https://savu.readthedocs.io/en/latest/user_guides/user_training/#training-examples">trainingexamples</a></p>
-<p>savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .</p>
+<div class="section" id="building-savu-lite">
+<h2>Building savu-lite<a class="headerlink" href="#building-savu-lite" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-sequence">
+<h3>Build Sequence<a class="headerlink" href="#build-sequence" title="Permalink to this headline">¶</a></h3>
+<p>Move to python 2 environment “miniconda2”</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">miniconda2</span></code></div></blockquote>
+<p>From directory containing meta.yaml and build.sh {the only required files}</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda-build</span> <span class="pre">purge</span></code>
+<code class="docutils literal"><span class="pre">conda-build</span> <span class="pre">.</span></code></div></blockquote>
+<p>Upload resulting file that will be created in linux-64 folder {first time it will create anaconda-project.yml}</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">anaconda</span> <span class="pre">upload</span> <span class="pre">linux-64/savu.....</span></code></div></blockquote>
+<p>Test by downloading file from test channel into fresh test environment</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">test_channel</span> <span class="pre">savu-lite</span></code></div></blockquote>
+<p>Run training example and savu_full_test</p>
+<p>Upload to savu-dep if testing passes</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">anaconda</span> <span class="pre">upload</span> <span class="pre">-u</span> <span class="pre">savu-dep</span> <span class="pre">linux-64/savu.....</span></code></div></blockquote>
+</div>
+<div class="section" id="current-channels-used">
+<h3>Current channels used<a class="headerlink" href="#current-channels-used" title="Permalink to this headline">¶</a></h3>
+<p>DEFAULT</p>
+<ul class="simple">
+<li><a class="reference external" href="https://repo.anaconda.com/pkgs/main/linux-64">https://repo.anaconda.com/pkgs/main/linux-64</a></li>
+<li><a class="reference external" href="https://repo.anaconda.com/pkgs/main/noarch">https://repo.anaconda.com/pkgs/main/noarch</a></li>
+<li><a class="reference external" href="https://repo.anaconda.com/pkgs/r/linux-64">https://repo.anaconda.com/pkgs/r/linux-64</a></li>
+<li><a class="reference external" href="https://repo.anaconda.com/pkgs/r/noarch">https://repo.anaconda.com/pkgs/r/noarch</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/conda-forge/linux-64">https://conda.anaconda.org/conda-forge/linux-64</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/conda-forge/noarch">https://conda.anaconda.org/conda-forge/noarch</a></li>
+</ul>
+<p>NEED TO BE ADDED</p>
+<ul class="simple">
+<li><a class="reference external" href="https://conda.anaconda.org/astra-toolbox/label/dev/linux-64">https://conda.anaconda.org/astra-toolbox/label/dev/linux-64</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/astra-toolbox/label/dev/noarch">https://conda.anaconda.org/astra-toolbox/label/dev/noarch</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/ccpi/linux-64">https://conda.anaconda.org/ccpi/linux-64</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/ccpi/noarch">https://conda.anaconda.org/ccpi/noarch</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/dkazanc/linux-64">https://conda.anaconda.org/dkazanc/linux-64</a></li>
+<li><a class="reference external" href="https://conda.anaconda.org/dkazanc/noarch">https://conda.anaconda.org/dkazanc/noarch</a></li>
+</ul>
 </div>
 <div class="section" id="use-of-pip-with-conda">
-<h2>Use of PIP with conda<a class="headerlink" href="#use-of-pip-with-conda" title="Permalink to this headline">¶</a></h2>
+<h3>Use of PIP with conda<a class="headerlink" href="#use-of-pip-with-conda" title="Permalink to this headline">¶</a></h3>
 <p>Currently the following files need to be pip installed as part of the build.sh script:</p>
 <ul class="simple">
-<li>gnureadline</li>
-<li>nvidia-ml-py</li>
+<li>gnureadline (8.0.0)</li>
+<li>nvidia-ml-py (7.352.0)</li>
 </ul>
 <p>However Conda and Pip don’t play well together and this is only an interim solution.</p>
+</div>
+<div class="section" id="anaconda-cloud-is-best-delivery-mechanism">
+<h3>Anaconda Cloud is best delivery mechanism<a class="headerlink" href="#anaconda-cloud-is-best-delivery-mechanism" title="Permalink to this headline">¶</a></h3>
+<p>Adding the built package to existing savu-dep anaconda cloud repository automatically allows conda install with savu-dep as the channel.  This seems much easier that attempting to set-up a continuous integration build on conda-forge that would not be of much use for this application.  It also quick, less than 15 minutes to upload and requires no approval from any external entity.</p>
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>To create a test environment (called “test” in command below)</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">python=2</span></code></div></blockquote>
+<p>To switch to “test” environment:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">test</span></code></div></blockquote>
+<p>To reset “test” environment to initial install:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--name</span> <span class="pre">test</span> <span class="pre">--revision</span> <span class="pre">0</span></code></div></blockquote>
+<div class="section" id="savu-training-example">
+<h3>Savu Training Example<a class="headerlink" href="#savu-training-example" title="Permalink to this headline">¶</a></h3>
+<p>Training examples are documented here: <a class="reference external" href="https://savu.readthedocs.io/en/latest/user_guides/user_training/#training-examples">trainingexamples</a></p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">savu</span> <span class="pre">data/24737.nxs</span> <span class="pre">process_lists/simple_tomo_pipeline_cpu.nxs</span> <span class="pre">.</span></code></div></blockquote>
+</div>
+<div class="section" id="existing-savu-tests">
+<h3>Existing Savu Tests<a class="headerlink" href="#existing-savu-tests" title="Permalink to this headline">¶</a></h3>
+<p>These can be run successfully from a conda installed savu-lite; savu_quick_test is also run as part of the build.</p>
+<ul class="simple">
+<li>savu_quick_tests</li>
+<li>savu_full_test</li>
+</ul>
+</div>
+</div>
+<div class="section" id="diamond-light-source-specific-notes">
+<h2>Diamond Light Source Specific Notes<a class="headerlink" href="#diamond-light-source-specific-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="use-local-machine-whenever-possible">
+<h3>Use local machine whenever possible<a class="headerlink" href="#use-local-machine-whenever-possible" title="Permalink to this headline">¶</a></h3>
+<p>Anything run on the main network is very slow, need everything to happen on local machine that is about five time faster.</p>
+</div>
+<div class="section" id="temporary-path">
+<h3>Temporary Path<a class="headerlink" href="#temporary-path" title="Permalink to this headline">¶</a></h3>
+<p>TMPPATH needs to be set to local machine otherwise build process takes five times as long!
+Create a “.bashrx_local” file containing the following line:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">export</span>&#160;&#160; <span class="pre">TMPPATH=/scratch/temporary-folder-name</span></code></div></blockquote>
+<p>Even with this, still need to check /tmp for accumulation of system detritus that can leave environment with insufficient available space to perform a Conda build.</p>
+</div>
+<div class="section" id="dont-use-module-loaded-version-of-conda">
+<h3>Don’t use Module loaded version of Conda<a class="headerlink" href="#dont-use-module-loaded-version-of-conda" title="Permalink to this headline">¶</a></h3>
+<p>Using modules network version is slow when run on network and has permissions problems when using it locally on /scratch.
+Recommend downloading and installing miniconda on scratch.</p>
+<p>I suspect that Conda does not react well with alternative installation and environmental control mechanisms such as Module Load and Pip, particularly when attempting to resolve dependency conflicts.</p>
+</div>
+</div>
+<div class="section" id="useful-links">
+<h2>Useful Links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Guide to Conda environments - <a class="reference external" href="https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533">condaguide</a></li>
+<li>ReadtheDocs Guide - <a class="reference external" href="https://docs.readthedocs.io/en/stable/">readthedocsguide</a> (incorporates a good “Getting Started with Sphinx”)</li>
+<li>Existing ReadtheDocs Project account - <a class="reference external" href="https://readthedocs.org/projects/savu/">savudocs</a></li>
+<li>Sphinx Quick Start Guide - <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">sphinxguide</a></li>
+</ul>
 </div>
 </div>
 
 
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development</a><ul>
+<li><a class="reference internal" href="#cooking-with-conda">Cooking with Conda</a></li>
+<li><a class="reference internal" href="#building-savu-lite">Building savu-lite</a><ul>
+<li><a class="reference internal" href="#build-sequence">Build Sequence</a></li>
+<li><a class="reference internal" href="#current-channels-used">Current channels used</a></li>
+<li><a class="reference internal" href="#use-of-pip-with-conda">Use of PIP with conda</a></li>
+<li><a class="reference internal" href="#anaconda-cloud-is-best-delivery-mechanism">Anaconda Cloud is best delivery mechanism</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#savu-training-example">Savu Training Example</a></li>
+<li><a class="reference internal" href="#existing-savu-tests">Existing Savu Tests</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#diamond-light-source-specific-notes">Diamond Light Source Specific Notes</a><ul>
+<li><a class="reference internal" href="#use-local-machine-whenever-possible">Use local machine whenever possible</a></li>
+<li><a class="reference internal" href="#temporary-path">Temporary Path</a></li>
+<li><a class="reference internal" href="#dont-use-module-loaded-version-of-conda">Don’t use Module loaded version of Conda</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#useful-links">Useful Links</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install-instructions.html"
+                        title="previous chapter">savu-lite installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/development.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
       </div>
       <div class="clearer"></div>
     </div>
@@ -85,13 +237,13 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="installation.html" title="savu-lite installation"
+          <a href="install-instructions.html" title="savu-lite installation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">savu-lite 0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Alun Robinson.
+        &#169; Copyright 2020, Diamond Light Source.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>

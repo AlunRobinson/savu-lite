@@ -4,8 +4,32 @@ Introduction
 
 .. _savudoc: https://savu.readthedocs.io/en/latest/
 
-This is general information regarding savu-lite.
+savu-lite
+---------
+
+savu-lite is a minimal Savu installation designed to run on a local machine as a trial/training introduction to Savu.
+
+It will only run on a linux 64-bit computer; their is no provision for Windows, Unix, or Mac operating systems.
+
+No administrator priviliges are required to install.
+
+Savu
+----
+
+Savu is a Python package to assist with the processing and reconstruction of parallel-beam tomography data. Savu is capable of processing N-dimensional full-field tomography and mapping tomography data, along with concurrent processing of multiple datasets.
 
 Comprehensive documentation on Savu can be found at `savudoc`_.
 
+Anaconda
+--------
+
+A science based Python and R distribution that is used by savu-lite as a build (through conda-build) and delivery (through Anaconda Cloud repository) mechanism.
+
+**miniconda**
+
+Miniconda is a small, bootstrap version of Anaconda that includes only conda, Python, the packages they depend on, and a small number of other useful packages, including pip, zlib, and a few others. 
+
+**Conda**
+
+The package and environment manager program bundled with Anaconda that installs and updates conda packages and their dependencies. Provides virtual environment capabilities similar to python venv.
 

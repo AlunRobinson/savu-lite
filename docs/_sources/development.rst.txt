@@ -3,33 +3,151 @@ Development
 ===========
 
 .. _trainingexamples: https://savu.readthedocs.io/en/latest/user_guides/user_training/#training-examples
+.. _sphinxguide: https://www.sphinx-doc.org/en/master/usage/quickstart.html
+.. _savudocs: https://readthedocs.org/projects/savu/
+.. _condaguide: https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533
+.. _readthedocsguide: https://docs.readthedocs.io/en/stable/
 
 Development notes for savu-lite
 
 Cooking with Conda
 ==================
 
-To set-up the basic development environment downloaded Miniconda2-latest-linux-x86_64.sh and installed on local machine.  Update to get latest versions and then install conda-build,  conda-verify, sphinx (for documentation), and anaconda-client (to allow uploading to anaconda cloud).
+To set-up the basic development environment download Miniconda2-latest-linux-x86_64.sh and install on local machine.  Update to get latest versions and then install conda-build,  conda-verify, sphinx (for documentation), and anaconda-client (to allow uploading to anaconda cloud).
 
-1) conda update conda
-2) conda install conda-build
-3) conda install conda-verify
-4) conda install sphinx
-5) conda install anaconda-client
+1) ``conda update conda``
+2) ``conda install conda-build``
+3) ``conda install conda-verify``
+4) ``conda install sphinx``
+5) ``conda install anaconda-client``
 
-Savu Training Example
-=====================
 
-Training examples are documented here: `trainingexamples`_
+Building savu-lite
+==================
 
-savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .
+Build Sequence
+--------------
+
+Move to python 2 environment "miniconda2"
+
+  ``conda activate miniconda2``
+
+From directory containing meta.yaml and build.sh {the only required files}
+
+  ``conda-build purge``
+  ``conda-build .``
+
+Upload resulting file that will be created in linux-64 folder {first time it will create anaconda-project.yml}
+
+  ``anaconda upload linux-64/savu.....``
+
+Test by downloading file from test channel into fresh test environment
+
+  ``conda install -c test_channel savu-lite``
+
+Run training example and savu_full_test
+
+Upload to savu-dep if testing passes
+
+  ``anaconda upload -u savu-dep linux-64/savu.....``
+
+Current channels used
+---------------------
+
+DEFAULT
+
+* https://repo.anaconda.com/pkgs/main/linux-64
+* https://repo.anaconda.com/pkgs/main/noarch
+* https://repo.anaconda.com/pkgs/r/linux-64
+* https://repo.anaconda.com/pkgs/r/noarch
+* https://conda.anaconda.org/conda-forge/linux-64
+* https://conda.anaconda.org/conda-forge/noarch
+
+NEED TO BE ADDED
+
+* https://conda.anaconda.org/astra-toolbox/label/dev/linux-64
+* https://conda.anaconda.org/astra-toolbox/label/dev/noarch
+* https://conda.anaconda.org/ccpi/linux-64
+* https://conda.anaconda.org/ccpi/noarch
+* https://conda.anaconda.org/dkazanc/linux-64
+* https://conda.anaconda.org/dkazanc/noarch
 
 Use of PIP with conda
-=====================
+---------------------
 
 Currently the following files need to be pip installed as part of the build.sh script:
 
-* gnureadline
-* nvidia-ml-py
+* gnureadline (8.0.0)
+* nvidia-ml-py (7.352.0)
 
 However Conda and Pip don’t play well together and this is only an interim solution.
+
+Anaconda Cloud is best delivery mechanism
+-----------------------------------------
+
+Adding the built package to existing savu-dep anaconda cloud repository automatically allows conda install with savu-dep as the channel.  This seems much easier that attempting to set-up a continuous integration build on conda-forge that would not be of much use for this application.  It also quick, less than 15 minutes to upload and requires no approval from any external entity.
+
+Testing
+=======
+
+To create a test environment (called "test" in command below)
+
+  ``conda create --name test python=2``
+
+To switch to "test" environment:
+
+  ``conda activate test``
+
+To reset "test" environment to initial install:
+
+  ``conda install --name test --revision 0``
+
+Savu Training Example
+---------------------
+
+Training examples are documented here: `trainingexamples`_
+
+  ``savu data/24737.nxs process_lists/simple_tomo_pipeline_cpu.nxs .``
+
+Existing Savu Tests
+-------------------
+
+These can be run successfully from a conda installed savu-lite; savu_quick_test is also run as part of the build.
+
+* savu_quick_tests
+* savu_full_test
+
+Diamond Light Source Specific Notes
+===================================
+
+Use local machine whenever possible
+-----------------------------------
+
+Anything run on the main network is very slow, need everything to happen on local machine that is about five time faster.
+
+Temporary Path
+--------------
+
+TMPPATH needs to be set to local machine otherwise build process takes five times as long!
+Create a “.bashrx_local” file containing the following line:
+
+  ``export   TMPPATH=/scratch/temporary-folder-name``
+
+Even with this, still need to check /tmp for accumulation of system detritus that can leave environment with insufficient available space to perform a Conda build. 
+
+Don’t use Module loaded version of Conda
+----------------------------------------
+
+Using modules network version is slow when run on network and has permissions problems when using it locally on /scratch.
+Recommend downloading and installing miniconda on scratch.
+
+I suspect that Conda does not react well with alternative installation and environmental control mechanisms such as Module Load and Pip, particularly when attempting to resolve dependency conflicts.
+
+Useful Links
+============
+
+* Guide to Conda environments - `condaguide`_
+* ReadtheDocs Guide - `readthedocsguide`_ (incorporates a good “Getting Started with Sphinx”)
+* Existing ReadtheDocs Project account - `savudocs`_
+* Sphinx Quick Start Guide - `sphinxguide`_
+

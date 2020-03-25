@@ -1,0 +1,33 @@
+======================
+savu-lite installation
+======================
+
+Installing savu-lite requires a minimal miniconda environment be installed first.
+
+Install Miniconda
+-----------------
+
+Download Miniconda2-latest-linux-x86_64.sh and install on local machine
+
+Set-Up Miniconda
+----------------
+
+Get latest updates to conda using following command:
+
+  ``conda update conda``
+
+Install savu-lite
+-----------------
+
+Install savu-lite into the base conda environment
+
+  ``conda install -c savu-dep savu-lite``
+
+
+Optional Additions
+------------------
+
+*tomopy* is not required to run the basic training example of savu tests, but may be required for any further experimentation.
+
+  ``conda install tomopy``
+

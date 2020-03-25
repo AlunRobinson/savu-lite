@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to savu-lite’s documentation! &#8212; savu-lite 0 documentation</title>
+    <title>Welcome to savu-lite’s documentation! &#8212; savu-lite 1.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -35,12 +35,13 @@
         <li class="right" >
           <a href="introduction.html" title="Introduction"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">savu-lite 0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
+        <div class="bodywrapper">
           <div class="body" role="main">
             
   <div class="section" id="welcome-to-savu-lite-s-documentation">
@@ -48,29 +49,73 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">savu-lite installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#install-miniconda">Install Miniconda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#set-up-miniconda">Set-Up Miniconda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#install-savu-lite">Install savu-lite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#optional-additions">Optional Additions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#savu-lite">savu-lite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#savu">Savu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#anaconda">Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install-instructions.html">savu-lite installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install-instructions.html#install-miniconda">Install Miniconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-instructions.html#set-up-miniconda">Set-Up Miniconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-instructions.html#install-savu-lite">Install savu-lite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-instructions.html#optional-additions">Optional Additions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development.html#cooking-with-conda">Cooking with Conda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#savu-training-example">Savu Training Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#use-of-pip-with-conda">Use of PIP with conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#building-savu-lite">Building savu-lite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#build-sequence">Build Sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#current-channels-used">Current channels used</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#use-of-pip-with-conda">Use of PIP with conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#anaconda-cloud-is-best-delivery-mechanism">Anaconda Cloud is best delivery mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#savu-training-example">Savu Training Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#existing-savu-tests">Existing Savu Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#diamond-light-source-specific-notes">Diamond Light Source Specific Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development.html#use-local-machine-whenever-possible">Use local machine whenever possible</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#temporary-path">Temporary Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development.html#dont-use-module-loaded-version-of-conda">Don’t use Module loaded version of Conda</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#useful-links">Useful Links</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<ul class="simple">
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
 </div>
 
 
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
       </div>
       <div class="clearer"></div>
     </div>
@@ -83,11 +128,11 @@
         <li class="right" >
           <a href="introduction.html" title="Introduction"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">savu-lite 0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020, Alun Robinson.
+        &#169; Copyright 2020, Diamond Light Source.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
     </div>
   </body>
