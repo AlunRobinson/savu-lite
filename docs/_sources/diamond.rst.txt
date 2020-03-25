@@ -25,6 +25,14 @@ Recommend downloading and installing miniconda on scratch.
 
 I suspect that Conda does not react well with alternative installation and environmental control mechanisms such as Module Load and Pip, particularly when attempting to resolve dependency conflicts.
 
+**Testing savu-lite on Environment Module Python/2.7 on network**
+
+Very slow and failed on multiple dependency issues.  Concluding note below:
+
+“Note that strict channel priority may have removed packages required for satisfiability.”
+may indicate it further investigation with more flexible channel handling may help; not convinced it is worth the time though.
+
+
 Beware Space Errors
 -------------------
 

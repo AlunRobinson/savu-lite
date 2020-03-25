@@ -1,8 +1,8 @@
 .. savu-lite documentation master file, created by sphinx-quickstart.
    This file can adapted, but it should at least contain the root `toctree` directive.
 
-Welcome to savu-lite's documentation!
-=====================================
+savu-lite's documentation
+=========================
 
 .. toctree::
    :maxdepth: 2
@@ -10,8 +10,8 @@ Welcome to savu-lite's documentation!
 
    introduction
    install-instructions
-   development
    testing
+   development
    diamond
 
 .. * :ref:`search`

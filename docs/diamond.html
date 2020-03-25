@@ -63,6 +63,10 @@ Create a “.bashrx_local” file containing the following line:</p>
 <p>Using modules network version is slow when run on network and has permissions problems when using it locally on /scratch.
 Recommend downloading and installing miniconda on scratch.</p>
 <p>I suspect that Conda does not react well with alternative installation and environmental control mechanisms such as Module Load and Pip, particularly when attempting to resolve dependency conflicts.</p>
+<p><strong>Testing savu-lite on Environment Module Python/2.7 on network</strong></p>
+<p>Very slow and failed on multiple dependency issues.  Concluding note below:</p>
+<p>“Note that strict channel priority may have removed packages required for satisfiability.”
+may indicate it further investigation with more flexible channel handling may help; not convinced it is worth the time though.</p>
 </div>
 <div class="section" id="beware-space-errors">
 <h2>Beware Space Errors<a class="headerlink" href="#beware-space-errors" title="Permalink to this headline">¶</a></h2>

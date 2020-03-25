@@ -106,8 +106,7 @@ Add to conda installation anaconda-client as follows:
   ``conda install anaconda-client``
 
 **Notes**
-
-Needed to delete and re-add to change documentation URL shown on Anaconda Cloud.
+needed to delete and re-add to change documentation URL shown on Anaconda Cloud.
 
 Build with Miniconda 3 or 2 ?
 -----------------------------
@@ -119,18 +118,17 @@ Miscellaneous
 
 **Python 2 “end of life”**
 
-Any Python 2 solution will be frozen in time as support for dependant libraries will diminish and cease. Currently 2.7.16 used, 2.7.17 is latest with 2.7.18 due in April
+  Any Python 2 solution will be frozen in time as support for dependant libraries will diminish and cease.
+  Currently 2.7.16 used, 2.7.17 is latest with 2.7.18 due in April
 
-numpy is no longer supported for python 2; last available version that can be used is 1.16.6
+  numpy is no longer supported for python 2; last available version that can be used is 1.16.6
 
 **Virtual Packages**
+exist for: cuda (__cuda) and glibc (__glibc)
+These can detect presence of and return version numbers for features that cannot be managed directly by conda.
 
-Virtual packages exist for:
-
-* cuda (__cuda)
-* glibc (__glibc)
-
-these can detect presence of and return version numbers for features that cannot be managed directly by conda.
+**yaml**
+need pyyaml in recipe to import yaml even though yaml is installed
 
 Useful Links
 ============
@@ -139,4 +137,6 @@ Useful Links
 * ReadtheDocs Guide - `readthedocsguide`_ (incorporates a good “Getting Started with Sphinx”)
 * Existing ReadtheDocs Project account - `savudocs`_
 * Sphinx Quick Start Guide - `sphinxguide`_
+* pandoc file conversion tool - https://pandoc.org/
+
 
