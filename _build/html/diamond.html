@@ -23,7 +23,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Testing" href="testing.html" /> 
+    <link rel="next" title="savu-lite package" href="package.html" />
+    <link rel="prev" title="Development" href="development.html" /> 
   </head>
   <body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -33,7 +34,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="testing.html" title="Testing"
+          <a href="package.html" title="savu-lite package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="development.html" title="Development"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>
@@ -48,29 +52,23 @@
 <h1>Diamond Light Source Specific Notes<a class="headerlink" href="#diamond-light-source-specific-notes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="use-local-machine-whenever-possible">
 <h2>Use local machine whenever possible<a class="headerlink" href="#use-local-machine-whenever-possible" title="Permalink to this headline">¶</a></h2>
-<p>Anything run on the main network is very slow, local machine is about five time faster.</p>
-</div>
-<div class="section" id="temporary-path">
-<h2>Temporary Path<a class="headerlink" href="#temporary-path" title="Permalink to this headline">¶</a></h2>
+<p>Anything run on the main network is very slow, local machine is much faster.</p>
+<p><strong>Temporary Path</strong></p>
 <p>TMPPATH needs to be set to local machine otherwise build process takes five times as long!
 Create a “.bashrx_local” file containing the following line:</p>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">export</span>&#160;&#160; <span class="pre">TMPPATH=/scratch/temporary-folder-name</span></code></div></blockquote>
 <p>Even with this, still need to check /tmp for accumulation of system detritus that can leave environment with insufficient available space to perform a Conda build.</p>
-</div>
-<div class="section" id="dont-use-module-loaded-version-of-conda">
-<h2>Don’t use Module loaded version of Conda<a class="headerlink" href="#dont-use-module-loaded-version-of-conda" title="Permalink to this headline">¶</a></h2>
+<p><strong>Don’t use Environment Module version of Conda</strong></p>
 <p>Using modules network version is slow when run on network and has permissions problems when using it locally on /scratch.
 Recommend downloading and installing miniconda on scratch.</p>
 <p>I suspect that Conda does not react well with alternative installation and environmental control mechanisms such as Module Load and Pip, particularly when attempting to resolve dependency conflicts.</p>
-<p><strong>Testing savu-lite on Environment Module Python/2.7 on network</strong></p>
-<p>Very slow and failed on multiple dependency issues.  Concluding note below:</p>
-<p>“Note that strict channel priority may have removed packages required for satisfiability.”
+<p><em>Testing savu-lite on Environment Module Python/2.7 on network</em></p>
+<p>Very slow and failed on multiple dependency issues.  Concluding note
+“Note that strict channel priority may have removed packages required for satisfiability.”
 may indicate it further investigation with more flexible channel handling may help; not convinced it is worth the time though.</p>
-</div>
-<div class="section" id="beware-space-errors">
-<h2>Beware Space Errors<a class="headerlink" href="#beware-space-errors" title="Permalink to this headline">¶</a></h2>
-<p>Check /tmp for accumulation of system detritus that can leave environment with insufficient available space to perform a Conda build.</p>
+<p><strong>Beware Environmental Errors</strong></p>
+<p>Check /tmp for accumulation of system detritus that can leave environment with insufficient available space to perform a Conda build. Errors due to this are not always easy to distinguish from actual build errors.</p>
 </div>
 </div>
 
@@ -84,16 +82,16 @@ may indicate it further investigation with more flexible channel handling may he
   <ul>
 <li><a class="reference internal" href="#">Diamond Light Source Specific Notes</a><ul>
 <li><a class="reference internal" href="#use-local-machine-whenever-possible">Use local machine whenever possible</a></li>
-<li><a class="reference internal" href="#temporary-path">Temporary Path</a></li>
-<li><a class="reference internal" href="#dont-use-module-loaded-version-of-conda">Don’t use Module loaded version of Conda</a></li>
-<li><a class="reference internal" href="#beware-space-errors">Beware Space Errors</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="testing.html"
-                        title="previous chapter">Testing</a></p>
+  <p class="topless"><a href="development.html"
+                        title="previous chapter">Development</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="package.html"
+                        title="next chapter">savu-lite package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -122,7 +120,10 @@ may indicate it further investigation with more flexible channel handling may he
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="testing.html" title="Testing"
+          <a href="package.html" title="savu-lite package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="development.html" title="Development"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">savu-lite 1.0 documentation</a> &#187;</li> 
       </ul>

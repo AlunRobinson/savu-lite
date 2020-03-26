@@ -84,9 +84,9 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">anaconda</span> <span class="pre">upload</span> <span class="pre">-u</span> <span class="pre">savu-dep</span> <span class="pre">linux-64/savu.....</span></code></div></blockquote>
 </div>
-<div class="section" id="current-channels-used">
-<h3>Current channels used<a class="headerlink" href="#current-channels-used" title="Permalink to this headline">¶</a></h3>
-<p><strong>Default</strong></p>
+<div class="section" id="channels">
+<h3>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h3>
+<p><strong>Default channels used</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="https://repo.anaconda.com/pkgs/main/linux-64">https://repo.anaconda.com/pkgs/main/linux-64</a></li>
 <li><a class="reference external" href="https://repo.anaconda.com/pkgs/main/noarch">https://repo.anaconda.com/pkgs/main/noarch</a></li>
@@ -95,7 +95,7 @@
 <li><a class="reference external" href="https://conda.anaconda.org/conda-forge/linux-64">https://conda.anaconda.org/conda-forge/linux-64</a></li>
 <li><a class="reference external" href="https://conda.anaconda.org/conda-forge/noarch">https://conda.anaconda.org/conda-forge/noarch</a></li>
 </ul>
-<p><strong>Additional</strong></p>
+<p><strong>Additional channels used</strong></p>
 <ul class="simple">
 <li><a class="reference external" href="https://conda.anaconda.org/astra-toolbox/label/dev/linux-64">https://conda.anaconda.org/astra-toolbox/label/dev/linux-64</a></li>
 <li><a class="reference external" href="https://conda.anaconda.org/astra-toolbox/label/dev/noarch">https://conda.anaconda.org/astra-toolbox/label/dev/noarch</a></li>
@@ -104,6 +104,25 @@
 <li><a class="reference external" href="https://conda.anaconda.org/dkazanc/linux-64">https://conda.anaconda.org/dkazanc/linux-64</a></li>
 <li><a class="reference external" href="https://conda.anaconda.org/dkazanc/noarch">https://conda.anaconda.org/dkazanc/noarch</a></li>
 </ul>
+<p><strong>Channel Priority</strong></p>
+<p>Channel_Priority is one of strict, flexible, disabled.  Strict chosen as it should be quickest as it takes stops when it finds a package looking in defined order.</p>
+<p><em>.condarc includes</em></p>
+<ul class="simple">
+<li>channels:<ul>
+<li>defaults</li>
+<li>conda-forge</li>
+<li>ccpi</li>
+<li>dkazanc</li>
+</ul>
+</li>
+<li>channel_priority: strict</li>
+<li>auto_activate_base: false</li>
+<li>show_channel_urls: true</li>
+</ul>
+<p><strong>Local Channels</strong></p>
+<p>when local channels change run the following in the channel root directory:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">index</span></code></div></blockquote>
 </div>
 <div class="section" id="use-of-pip-with-conda">
 <h3>Use of PIP with conda<a class="headerlink" href="#use-of-pip-with-conda" title="Permalink to this headline">¶</a></h3>
@@ -148,6 +167,8 @@ exist for: cuda (__cuda) and glibc (__glibc)
 These can detect presence of and return version numbers for features that cannot be managed directly by conda.</p>
 <p><strong>yaml</strong>
 need pyyaml in recipe to import yaml even though yaml is installed</p>
+<p><strong>pandoc</strong></p>
+<p>A very nice tool that automatically converts between document formats, it is available via conda, and should do most and in simple cases all of the necessary work for likely source formats. As a command line tools it is automation friendly. Details can be found at <a class="reference external" href="https://pandoc.org/">pandoc</a></p>
 </div>
 </div>
 <div class="section" id="useful-links">
@@ -157,7 +178,7 @@ need pyyaml in recipe to import yaml even though yaml is installed</p>
 <li>ReadtheDocs Guide - <a class="reference external" href="https://docs.readthedocs.io/en/stable/">readthedocsguide</a> (incorporates a good “Getting Started with Sphinx”)</li>
 <li>Existing ReadtheDocs Project account - <a class="reference external" href="https://readthedocs.org/projects/savu/">savudocs</a></li>
 <li>Sphinx Quick Start Guide - <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">sphinxguide</a></li>
-<li>pandoc file conversion tool - <a class="reference external" href="https://pandoc.org/">https://pandoc.org/</a></li>
+<li>pandoc file conversion tool - <a class="reference external" href="https://pandoc.org/">pandoc</a></li>
 </ul>
 </div>
 </div>
@@ -174,7 +195,7 @@ need pyyaml in recipe to import yaml even though yaml is installed</p>
 <li><a class="reference internal" href="#cooking-with-conda">Cooking with Conda</a></li>
 <li><a class="reference internal" href="#building-savu-lite">Building savu-lite</a><ul>
 <li><a class="reference internal" href="#build-sequence">Build Sequence</a></li>
-<li><a class="reference internal" href="#current-channels-used">Current channels used</a></li>
+<li><a class="reference internal" href="#channels">Channels</a></li>
 <li><a class="reference internal" href="#use-of-pip-with-conda">Use of PIP with conda</a></li>
 <li><a class="reference internal" href="#anaconda-cloud">Anaconda Cloud</a></li>
 <li><a class="reference internal" href="#build-with-miniconda-3-or-2">Build with Miniconda 3 or 2 ?</a></li>

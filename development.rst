@@ -7,6 +7,7 @@ Development
 .. _savudocs: https://readthedocs.org/projects/savu/
 .. _condaguide: https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533
 .. _readthedocsguide: https://docs.readthedocs.io/en/stable/
+.. _pandoc: https://pandoc.org/
 
 Development notes for savu-lite
 
@@ -51,10 +52,10 @@ Upload to savu-dep if testing passes
 
   ``anaconda upload -u savu-dep linux-64/savu.....``
 
-Current channels used
----------------------
+Channels
+--------
 
-**Default**
+**Default channels used**
 
 * https://repo.anaconda.com/pkgs/main/linux-64
 * https://repo.anaconda.com/pkgs/main/noarch
@@ -63,7 +64,7 @@ Current channels used
 * https://conda.anaconda.org/conda-forge/linux-64
 * https://conda.anaconda.org/conda-forge/noarch
 
-**Additional**
+**Additional channels used**
 
 * https://conda.anaconda.org/astra-toolbox/label/dev/linux-64
 * https://conda.anaconda.org/astra-toolbox/label/dev/noarch
@@ -71,6 +72,29 @@ Current channels used
 * https://conda.anaconda.org/ccpi/noarch
 * https://conda.anaconda.org/dkazanc/linux-64
 * https://conda.anaconda.org/dkazanc/noarch
+
+**Channel Priority**
+
+Channel_Priority is one of strict, flexible, disabled.  Strict chosen as it should be quickest as it takes stops when it finds a package looking in defined order.
+
+*.condarc includes*
+
+* channels:
+
+  * defaults
+  * conda-forge
+  * ccpi
+  * dkazanc
+
+* channel_priority: strict
+* auto_activate_base: false
+* show_channel_urls: true
+
+**Local Channels**
+
+when local channels change run the following in the channel root directory:
+
+  ``conda index``
 
 Use of PIP with conda
 ---------------------
@@ -130,6 +154,10 @@ These can detect presence of and return version numbers for features that cannot
 **yaml**
 need pyyaml in recipe to import yaml even though yaml is installed
 
+**pandoc**
+
+A very nice tool that automatically converts between document formats, it is available via conda, and should do most and in simple cases all of the necessary work for likely source formats. As a command line tools it is automation friendly. Details can be found at `pandoc`_
+
 Useful Links
 ============
 
@@ -137,6 +165,6 @@ Useful Links
 * ReadtheDocs Guide - `readthedocsguide`_ (incorporates a good “Getting Started with Sphinx”)
 * Existing ReadtheDocs Project account - `savudocs`_
 * Sphinx Quick Start Guide - `sphinxguide`_
-* pandoc file conversion tool - https://pandoc.org/
+* pandoc file conversion tool - `pandoc`_
 
 
