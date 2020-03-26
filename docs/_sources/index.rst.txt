@@ -13,5 +13,6 @@ savu-lite's documentation
    testing
    development
    diamond
+   package
 
 .. * :ref:`search`
