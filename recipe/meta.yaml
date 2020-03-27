@@ -25,10 +25,10 @@ requirements:
     - scipy
     - fftw
     - pyfftw
-    - hdf5
-    - h5py
     - openmpi
     - mpi4py
+    - hdf5
+    - h5py =*=mpi_openmpi*
     - colorama
     - linecache2
     - traceback2
@@ -44,6 +44,8 @@ requirements:
     - ccpi-regulariser
     - cudatoolkit
     - tomobar
+    - tomopy
+    - pymca
 
 test:
   imports:
