@@ -11,7 +11,7 @@ Savu & savu-lite
 ----------------
 
 **savu-lite**
-is a minimal Savu installation designed to run on a local machine as a trial/training introduction to Savu.
+is a minimal Savu installation designed to run on a local machine installed miniconda 2 environment as an introduction to Savu.
 
   It will only run on a linux 64-bit computer; their is no provision for Windows, Unix, or Mac operating systems.
   No administrator priviliges are required to install.
