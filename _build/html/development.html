@@ -111,18 +111,33 @@
 <li>channels:<ul>
 <li>defaults</li>
 <li>conda-forge</li>
+<li>astra-toolbox/label/dev</li>
 <li>ccpi</li>
 <li>dkazanc</li>
 </ul>
 </li>
-<li>channel_priority: strict</li>
 <li>auto_activate_base: false</li>
 <li>show_channel_urls: true</li>
+<li>unsatisfiable_hints: true</li>
 </ul>
-<p><strong>Local Channels</strong></p>
-<p>when local channels change run the following in the channel root directory:</p>
+<p><strong>Local Channels Creation</strong></p>
+<p>Created a Conda Environment and install conda-build</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--name</span> <span class="pre">local_channel_name</span> <span class="pre">python=2</span> <span class="pre">conda-build</span></code></p>
+<p><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">conda-build</span></code></p>
+</div></blockquote>
+<p>To create a local channel for python package “click”:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">conda</span> <span class="pre">skeleton</span> <span class="pre">pypi</span> <span class="pre">click</span></code></p>
+<p><code class="docutils literal"><span class="pre">conda-build</span> <span class="pre">click</span></code></p>
+</div></blockquote>
+<p><em>whenever local channels change</em>
+run the following in the channel root directory:</p>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">index</span></code></div></blockquote>
+<p>Able to pick-up local version of click using:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">local_channel_name</span> <span class="pre">click</span></code></div></blockquote>
 </div>
 <div class="section" id="use-of-pip-with-conda">
 <h3>Use of PIP with conda<a class="headerlink" href="#use-of-pip-with-conda" title="Permalink to this headline">¶</a></h3>

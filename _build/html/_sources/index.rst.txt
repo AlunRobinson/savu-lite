@@ -15,4 +15,6 @@ savu-lite's documentation
    diamond
    package
 
+.. image:: savu_logo.png
+
 .. * :ref:`search`

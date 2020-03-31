@@ -83,18 +83,36 @@ Channel_Priority is one of strict, flexible, disabled.  Strict chosen as it shou
 
   * defaults
   * conda-forge
+  * astra-toolbox/label/dev
   * ccpi
   * dkazanc
 
-* channel_priority: strict
 * auto_activate_base: false
 * show_channel_urls: true
+* unsatisfiable_hints: true
 
-**Local Channels**
+**Local Channels Creation**
 
-when local channels change run the following in the channel root directory:
+Created a Conda Environment and install conda-build
+
+  ``conda create --name local_channel_name python=2 conda-build``
+
+  ``conda install conda-build``
+
+To create a local channel for python package "click":
+
+  ``conda skeleton pypi click``
+
+  ``conda-build click``
+
+*whenever local channels change*
+run the following in the channel root directory:
 
   ``conda index``
+
+Able to pick-up local version of click using:
+
+  ``conda install -c local_channel_name click``
 
 Use of PIP with conda
 ---------------------
